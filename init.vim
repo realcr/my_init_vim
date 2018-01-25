@@ -12,7 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'cstrahan/vim-capnp'
-Plug 'rakr/vim-one'
+Plug 'chriskempson/base16-vim'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -24,9 +24,12 @@ call plug#end()
 set termguicolors
 
 " For vim airline theme
-let g:airline_theme='one'
-colorscheme one
-set background=dark
+" let g:airline_theme='one'
+" colorscheme one
+" set background=dark
+
+" colorscheme base16-default-dark
+colorscheme base16-irblack
 
 
 " ------- Leader keys {{{
