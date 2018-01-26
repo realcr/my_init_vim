@@ -29,7 +29,8 @@ set termguicolors
 " set background=dark
 
 " colorscheme base16-default-dark
-colorscheme base16-irblack
+" colorscheme base16-irblack
+colorscheme base16-monokai
 
 
 " ------- Leader keys {{{
