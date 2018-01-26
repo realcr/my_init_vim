@@ -119,3 +119,5 @@ nnoremap <leader>vf :nohlsearch<cr>
 " Make sure vim doesn't ask me to save before swapping between buffers:
 set hidden
 " }}}
+"
+syntax on
