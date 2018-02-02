@@ -1,3 +1,4 @@
+
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
@@ -30,8 +31,9 @@ set termguicolors
 
 " colorscheme base16-default-dark
 " colorscheme base16-irblack
-colorscheme base16-monokai
 
+colorscheme base16-monokai
+syntax on
 
 " ------- Leader keys {{{
 " Set leader key for global scripts:
