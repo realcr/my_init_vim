@@ -123,4 +123,3 @@ nnoremap <leader>vf :nohlsearch<cr>
 set hidden
 " }}}
 "
-syntax on
