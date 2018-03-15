@@ -69,7 +69,7 @@ let g:syntastic_python_python_exec = '/usr/bin/python3'
 
 " Rust syntastic fix from 
 " https://github.com/rust-lang/rust.vim/issues/130 :
-let g:syntastic_rust_rustc_exe = 'cargo check --tests'
+let g:syntastic_rust_rustc_exe = 'cargo check --tests --features=dev'
 let g:syntastic_rust_rustc_fname = ''
 let g:syntastic_rust_rustc_args = '--'
 let g:syntastic_rust_checkers = ['rustc']
