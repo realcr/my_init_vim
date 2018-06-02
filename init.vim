@@ -15,6 +15,15 @@ Plug 'plasticboy/vim-markdown'
 Plug 'cstrahan/vim-capnp'
 Plug 'chriskempson/base16-vim'
 
+" RLS related, see: https://github.com/autozimu/LanguageClient-neovim
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -69,10 +78,12 @@ let g:syntastic_python_python_exec = '/usr/bin/python3'
 
 " Rust syntastic fix from 
 " https://github.com/rust-lang/rust.vim/issues/130 :
-let g:syntastic_rust_rustc_exe = 'cargo check --tests'
-let g:syntastic_rust_rustc_fname = ''
-let g:syntastic_rust_rustc_args = '--'
-let g:syntastic_rust_checkers = ['rustc']
+
+" let g:syntastic_rust_rustc_exe = 'cargo check --tests'
+" let g:syntastic_rust_rustc_fname = ''
+" let g:syntastic_rust_rustc_args = '--'
+" let g:syntastic_rust_checkers = ['rustc']
+
 " let g:syntastic_debug = 1
 " let g:syntastic_debug_file = "~/syntastic.log" 
 " }}}
@@ -123,3 +134,18 @@ nnoremap <leader>vf :nohlsearch<cr>
 set hidden
 " }}}
 "
+
+
+" -------- RLS configuration {{{
+" See https://github.com/autozimu/LanguageClient-neovim
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" }}}
