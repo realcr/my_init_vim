@@ -8,7 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
+" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -55,9 +55,14 @@ let maplocalleader = "\\"
 "
 " -------- YouCompleteMe configuration{{{
 " Rust source code path:
-let g:ycm_rust_src_path = $RUST_SOURCE_CODE_PATH
-let g:ycm_filetype_blacklist = {'tex': 1, 'markdown': 1, 'fasm': 1, 'asm': 1}
-nnoremap <leader>gt :YcmCompleter GoTo<cr>
+" let g:ycm_rust_src_path = $RUST_SOURCE_CODE_PATH
+" let g:ycm_filetype_blacklist = {'tex': 1, 'markdown': 1, 'fasm': 1, 'asm': 1}
+" nnoremap <leader>gt :YcmCompleter GoTo<cr>
+" }}}
+"
+
+" -------- deoplete configuration {{{
+let g:deoplete#enable_at_startup = 1
 " }}}
 
 "
