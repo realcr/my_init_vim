@@ -1,5 +1,3 @@
-" Use the nasm filetype.
-set filetype=nasm
 
 set autoindent
 " 79 characters per line:
