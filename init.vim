@@ -145,8 +145,10 @@ set hidden
 
 " -------- RLS configuration {{{
 " See https://github.com/autozimu/LanguageClient-neovim
+"
+" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rls'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
