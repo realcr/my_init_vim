@@ -1,4 +1,3 @@
-
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
@@ -65,6 +64,9 @@ let maplocalleader = "\\"
 
 " -------- deoplete configuration {{{
 let g:deoplete#enable_at_startup = 1
+" Disable opening preview buffer for every autocompletion
+" See: https://github.com/zchee/deoplete-clang/issues/55
+set completeopt -=preview
 " }}}
 
 "
