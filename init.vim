@@ -154,6 +154,10 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
     \ }
 
+" Don't show inline errors. See:
+" https://github.com/autozimu/LanguageClient-neovim/issues/719
+let g:LanguageClient_useVirtualText=0
+
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
