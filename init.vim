@@ -145,6 +145,8 @@ set hidden
 " }}}
 "
 
+" Rust format on save:
+let g:rustfmt_autosave = 1
 
 " -------- RLS configuration {{{
 " See https://github.com/autozimu/LanguageClient-neovim
