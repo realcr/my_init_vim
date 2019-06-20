@@ -33,6 +33,10 @@ Plug 'vim-scripts/DrawIt'
 " Initialize plugin system
 call plug#end()
 
+
+" ctrlp: Ignore rust's target directories
+let g:ctrlp_custom_ignore = 'target\|git'
+
 " Makes the colors reasonable when using nvim's colorschemes.
 set termguicolors
 
