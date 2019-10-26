@@ -1,4 +1,4 @@
-let g:python3_host_prog = '/usr/bin/python3.7'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
@@ -22,13 +22,13 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 " (Optional) Multi-entry selection UI.
-Plug 'junegunn/fzf'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Allows drawing ascii art images in vim:
 Plug 'vim-scripts/DrawIt'
 
 " Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
