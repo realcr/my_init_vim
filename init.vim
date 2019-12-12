@@ -1,7 +1,6 @@
 let g:python3_host_prog = '/usr/bin/python3'
 
-" Specify a directory for plugins
-" - Avoid using standard Vim directory names like 'plugin'
+" Specify a directory for plugins Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
