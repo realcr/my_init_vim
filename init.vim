@@ -29,6 +29,9 @@ Plug 'vim-scripts/DrawIt'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Dart language plugin (Highlighting + formatting)
+Plug 'dart-lang/dart-vim-plugin'
+
 " Initialize plugin system
 call plug#end()
 
@@ -89,7 +92,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 " Make syntastic python linter understand python3:
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['rust'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['rust', 'dart'] }
 
 " Rust syntastic fix from 
 " https://github.com/rust-lang/rust.vim/issues/130 :
@@ -159,6 +162,7 @@ let g:rustfmt_autosave = 1
 " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
+    \ 'dart': ['dart_language_server'],
     \ }
 
 " Don't show inline errors. See:
@@ -173,4 +177,17 @@ nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> <leader>c :call LanguageClient#textDocument_codeAction()<CR>
 nnoremap <silent> <leader>e :call LanguageClient#explainErrorAtPoint()<CR>
+" }}}
+
+
+" -------- dart-vim-plugin configuration {{{
+
+" Dart styling (indentation)
+let dart_style_guide = 2
+" Dart format on save:
+" let dart_format_on_save = 1
+
+" Add auto-formatting shortcut in case of *.dart files:
+autocmd BufReadPost,BufNewFile *.dart nnoremap <buffer> <silent> <leader>f :DartFmt<CR>
+" nnoremap <silent> <leader>f :DartFmt<CR>
 " }}}
