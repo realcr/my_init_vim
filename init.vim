@@ -112,6 +112,10 @@ inoremap jk <Esc>
 " }}}
 "
 
+" Save file using leader+w (Quick save)
+nnoremap <leader>w :update<cr>
+cabbrev w split<cr>
+
 " ---------- cwindow options {{{
 "  Mapping for :cnext and :cprevious.
 "  These are used to traverse the cwindow results 
