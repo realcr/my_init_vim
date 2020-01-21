@@ -15,6 +15,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'cstrahan/vim-capnp'
 Plug 'chriskempson/base16-vim'
 
+" Lanauge client for dart
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " RLS related, see: https://github.com/autozimu/LanguageClient-neovim
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -166,12 +169,13 @@ let g:rustfmt_autosave = 1
 " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
-    \ 'dart': ['dart_language_server'],
     \ }
+
+" \ 'dart': ['dart_language_server'],
 
 " Don't show inline errors. See:
 " https://github.com/autozimu/LanguageClient-neovim/issues/719
-let g:LanguageClient_useVirtualText=0
+let g:LanguageClient_useVirtualText="No"
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
