@@ -14,6 +14,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'cstrahan/vim-capnp'
 Plug 'chriskempson/base16-vim'
+Plug 'stephpy/vim-yaml'
 
 " Lanauge client for dart
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
