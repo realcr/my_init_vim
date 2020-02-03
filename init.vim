@@ -16,14 +16,14 @@ Plug 'cstrahan/vim-capnp'
 Plug 'chriskempson/base16-vim'
 Plug 'stephpy/vim-yaml'
 
-" Lanauge client for dart
+" Lanauge client for Rust and Dart
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " RLS related, see: https://github.com/autozimu/LanguageClient-neovim
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"   \ 'branch': 'next',
+"   \ 'do': 'bash install.sh',
+"   \ }
 " (Optional) Multi-entry selection UI.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Allows drawing ascii art images in vim:
@@ -168,26 +168,42 @@ let g:rustfmt_autosave = 1
 " See https://github.com/autozimu/LanguageClient-neovim
 "
 " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+"   \ }
+    " \ 'rust': ['rls'],
 
 " \ 'dart': ['dart_language_server'],
 
 " Don't show inline errors. See:
 " https://github.com/autozimu/LanguageClient-neovim/issues/719
-let g:LanguageClient_useVirtualText="No"
+" let g:LanguageClient_useVirtualText="No"
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <leader>c :call LanguageClient#textDocument_codeAction()<CR>
-nnoremap <silent> <leader>e :call LanguageClient#explainErrorAtPoint()<CR>
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" nnoremap <silent> <leader>c :call LanguageClient#textDocument_codeAction()<CR>
+" nnoremap <silent> <leader>e :call LanguageClient#explainErrorAtPoint()<CR>
 " }}}
 
+
+" Rename
+nmap <silent> <F2> <Plug>(coc-rename)
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " -------- dart-vim-plugin configuration {{{
 
