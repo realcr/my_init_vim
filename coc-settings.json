@@ -1,0 +1,4 @@
+{
+  // Use Microsoft Python Language Server,
+  "python.jediEnabled": false
+}

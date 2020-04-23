@@ -7,7 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 "
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'rust-lang/rust.vim'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 " Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
@@ -25,7 +25,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "   \ 'do': 'bash install.sh',
 "   \ }
 " (Optional) Multi-entry selection UI.
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Allows drawing ascii art images in vim:
 Plug 'vim-scripts/DrawIt'
 
@@ -41,7 +41,10 @@ call plug#end()
 
 
 " ctrlp: Ignore rust's target directories
-let g:ctrlp_custom_ignore = 'target\|git'
+" let g:ctrlp_custom_ignore = 'target\|git'
+let g:ctrlp_custom_ignore = 'target'
+" Ignore files from .gitignore, see https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252:
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Makes the colors reasonable when using nvim's colorschemes.
 set termguicolors
@@ -56,6 +59,9 @@ set termguicolors
 
 colorscheme base16-monokai
 syntax on
+
+" Clipboard
+set clipboard+=unnamedplus
 
 " ------- Leader keys {{{
 " Set leader key for global scripts:
@@ -75,10 +81,10 @@ let maplocalleader = "\\"
 "
 
 " -------- deoplete configuration {{{
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " Disable opening preview buffer for every autocompletion
 " See: https://github.com/zchee/deoplete-clang/issues/55
-set completeopt -=preview
+" set completeopt -=preview
 " }}}
 
 "
@@ -91,12 +97,12 @@ let g:vim_markdown_math=1
 
 
 " -------- Syntastic configuration {{{
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 " See http://stackoverflow.com/questions/7233005/how-to-configure-syntastic-with-jshint
 " Make syntastic python linter understand python3:
-let g:syntastic_python_python_exec = '/usr/bin/python3'
+" let g:syntastic_python_python_exec = '/usr/bin/python3'
 
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['rust', 'dart'] }
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['rust', 'dart', 'markdown'] }
 
 " Rust syntastic fix from 
 " https://github.com/rust-lang/rust.vim/issues/130 :
@@ -164,6 +170,9 @@ set hidden
 " Rust format on save:
 let g:rustfmt_autosave = 1
 
+" NERDTree ignore:
+" let NERDTreeIgnore=['.o']
+
 " -------- RLS configuration {{{
 " See https://github.com/autozimu/LanguageClient-neovim
 "
@@ -202,6 +211,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Disable coc on
+autocmd FileType strace let b:coc_suggest_disable = 1
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -216,3 +228,8 @@ let dart_style_guide = 2
 autocmd BufReadPost,BufNewFile *.dart nnoremap <buffer> <silent> <leader>f :DartFmt<CR>
 " nnoremap <silent> <leader>f :DartFmt<CR>
 " }}}
+
+" Shortcuts for creating struct and union boilerplate in Dart:
+" r !./tool/gen_built_value -s CreateNodeLocal
+command! -nargs=+ BuiltStruct r !./tool/gen_built_value -s "<args>"
+command! -nargs=+ BuiltUnion r !./tool/gen_built_value -u "<args>"
