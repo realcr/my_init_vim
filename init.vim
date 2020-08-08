@@ -15,6 +15,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'cstrahan/vim-capnp'
 Plug 'chriskempson/base16-vim'
 Plug 'stephpy/vim-yaml'
+Plug 'hail2u/vim-css3-syntax'
 
 " Lanauge client for Rust and Dart
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -210,6 +211,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Add auto-formatting shortcut in case of *.html files:
+autocmd BufReadPost,BufNewFile *.html nnoremap <buffer> <silent> <leader>f :call CocAction('format')<CR>
+
 
 " Disable coc on
 autocmd FileType strace let b:coc_suggest_disable = 1
