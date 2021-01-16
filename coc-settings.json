@@ -1,6 +1,6 @@
 {
   // Use Microsoft Python Language Server,
   "python.jediEnabled": false,
-  "rust-analyzer.updates.channel": "nightly",
+  "rust-analyzer.updates.channel": "stable",
   "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "css"]
 }
