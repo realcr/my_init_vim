@@ -211,6 +211,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" Search list of all workspace symbols:
+nmap <silent> <C-s> :<C-u>CocList -I symbols<cr>
 
 " Add auto-formatting shortcut in case of *.html files:
 autocmd BufReadPost,BufNewFile *.html nnoremap <buffer> <silent> <leader>f :call CocAction('format')<CR>
