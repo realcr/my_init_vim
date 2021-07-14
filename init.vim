@@ -143,6 +143,8 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " }}}
 
+" Escape terminal mode using Esc:
+tnoremap <Esc> <C-\><C-n>
 
 " Expand tab into spaces:
 set expandtab
