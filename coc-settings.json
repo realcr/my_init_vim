@@ -2,5 +2,8 @@
   // Use Microsoft Python Language Server,
   "python.jediEnabled": false,
   "rust-analyzer.updates.channel": "stable",
+  // See: https://github.com/rust-analyzer/rust-analyzer/issues/6054#issuecomment-696255285
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "rust-analyzer.procMacro.enable": true,
   "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "css"]
 }
